@@ -116,23 +116,20 @@
         }
     },
     "models": {
-        "Volume" : {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "location": "json",
-                    "type": "string"
-                },
-                "volumeInfo": {
-                    "location": "json",
-                    "type": "array"
-                }
-            }
-        },
         "GetVolumeOutput": {
             "type": "array",
             "items": {
-                "$ref": "Volume"
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "location": "json",
+                        "type": "string"
+                    },
+                    "volumeInfo": {
+                        "location": "json",
+                        "type": "array"
+                    }
+                }
             }
         }
     }
