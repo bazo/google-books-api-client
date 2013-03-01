@@ -116,40 +116,23 @@
         }
     },
     "models": {
-        "GetVolumeOutput": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "location": "json",
-                        "type": "string"
-                    },
-                    "volumeInfo": {
-                        "location": "json",
-                        "type": "array"
-                    }
+        "Volume" : {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "location": "json",
+                    "type": "string"
+                },
+                "volumeInfo": {
+                    "location": "json",
+                    "type": "array"
                 }
             }
         },
-        "GetSearchOutput": {
+        "GetVolumeOutput": {
             "type": "array",
             "items": {
-                "type": "object",
-                "properties": {
-                    "kind": {
-                        "location": "json",
-                        "type": "string"
-                    },
-                    "totalItems": {
-                        "location": "json",
-                        "type": "integer"
-                    },
-                    "items": {
-                        "location": "json",
-                        "type": "array"
-                    }
-                }
+                "$ref": "Volume"
             }
         }
     }
