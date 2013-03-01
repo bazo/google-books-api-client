@@ -1,6 +1,6 @@
 <?php
 
-namespace Marvelley\GoogleBooks\Api;
+namespace GoogleBooks\Api;
 
 use Guzzle\Common\Collection;
 use Guzzle\Service\Client;

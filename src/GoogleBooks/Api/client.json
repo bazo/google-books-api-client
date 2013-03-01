@@ -1,0 +1,136 @@
+{
+    "name": "Google Books API",
+    "apiVersion": "2012-10-25",
+    "baseUrl": "https://www.googleapis.com",
+    "description": "A client that provides access to the Google Books API",
+    "operations": {
+        "GetVolume": {
+            "httpMethod": "GET",
+            "uri": "/books/v1/volumes/{id}",
+            "summary": "Retrieves a single volume",
+            "responseClass": "GetVolumeOutput",
+            "parameters": {
+                "id": {
+                    "location": "uri",
+                    "description": "Volume to retrieve by ID",
+                    "required": "true"
+                }
+            }
+        },
+        "GetVolumesByIsbn": {
+            "httpMethod": "GET",
+            "uri": "/books/v1/volumes?q=isbn:{isbn}",
+            "summary": "Retrieves a single volume",
+            "responseClass": "GetVolumeOutput",
+            "parameters": {
+                "isbn": {
+                    "location": "uri",
+                    "description": "Volumes to retrieve by ISBN",
+                    "required": "true"
+                }
+            }
+        },
+        "SearchVolumes": {
+            "httpMethod": "GET",
+            "uri": "/books/v1/volumes?q={search}&filter={filter}&download={download}&startIndex={startIndex}&maxResults={maxResults}&orderBy={orderBy}&projection={projection}&maxResults={printType}&key={key}",
+            "summary": "Search volumes",
+            "responseClass": "GetVolumeOutput",
+            "parameters": {
+                "search": {
+                    "location": "uri",
+                    "description": "Volumes to search by text",
+                    "required": "true",
+                    "type": "string"
+                },
+                 "filter": {
+                    "location": "uri",
+                    "description": "You can use the filter parameter to restrict the returned results further by setting it the to one of the following values",
+                    "required": "false",
+                    "enum": [
+                        "partial",
+                        "full",
+                        "free-ebooks",
+                        "paid-ebooks",
+                        "ebooks"
+                    ],
+                    "type": "string"
+                },
+                 "download": {
+                    "location": "uri",
+                    "description": "You use the download parameter to restrict the returned results to volumes that have an available download format of epub by setting the to the value epub",
+                    "required": "false",
+                    "enum": [
+                        "epub"
+                    ],
+                    "type": "string"
+                },
+                "startIndex": {
+                    "location": "uri",
+                    "description": "The position in the collection at which to start the list of results.",
+                    "required": "false",
+                    "default" : 0,
+                    "type": "integer"
+                },
+                "maxResults": {
+                    "location": "uri",
+                    "description": "The maximum number of elements to return with this request.",
+                    "required": "false",
+                    "default": 10,
+                    "maximum": 40,
+                    "type": "integer"
+                },
+                "orderBy": {
+                    "location": "uri",
+                    "description": "Order of the volume search results.",
+                    "required": "false",
+                    "enum": [
+                        "relevance",
+                        "newest"
+                    ],
+                    "default": "relevance",
+                    "type": "string"
+                },
+                "printType": {
+                    "location": "uri",
+                    "description": "Restrict to books or magazines.",
+                    "required": "false",
+                    "type": "string"
+                },
+                "projection": {
+                    "location": "uri",
+                    "description": "Restrict volume information returned to a subset of fields.",
+                    "required": "false",
+                    "type": "string",
+                    "enum": [
+                        "full",
+                        "lite"
+                    ]
+                },
+                "key": {
+                    "location": "uri",
+                    "description": "API key",
+                    "required": "false",
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "models": {
+        "GetVolumeOutput": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "location": "json",
+                        "type": "string"
+                    },
+                    "volumeInfo": {
+                        "location": "json",
+                        "type": "array"
+                    }
+                }
+            }
+        }
+    }
+}
