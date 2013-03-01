@@ -13,7 +13,7 @@
                 "id": {
                     "location": "uri",
                     "description": "Volume to retrieve by ID",
-                    "required": "true"
+                    "required": true
                 }
             }
         },
@@ -26,7 +26,7 @@
                 "isbn": {
                     "location": "uri",
                     "description": "Volumes to retrieve by ISBN",
-                    "required": "true"
+                    "required": true
                 }
             }
         },
@@ -39,13 +39,13 @@
                 "search": {
                     "location": "uri",
                     "description": "Volumes to search by text",
-                    "required": "true",
+                    "required": true,
                     "type": "string"
                 },
                  "filter": {
                     "location": "uri",
                     "description": "You can use the filter parameter to restrict the returned results further by setting it the to one of the following values",
-                    "required": "false",
+                    "required": false,
                     "enum": [
                         "partial",
                         "full",
@@ -58,7 +58,7 @@
                  "download": {
                     "location": "uri",
                     "description": "You use the download parameter to restrict the returned results to volumes that have an available download format of epub by setting the to the value epub",
-                    "required": "false",
+                    "required": false,
                     "enum": [
                         "epub"
                     ],
@@ -67,14 +67,14 @@
                 "startIndex": {
                     "location": "uri",
                     "description": "The position in the collection at which to start the list of results.",
-                    "required": "false",
+                    "required": false,
                     "default" : 0,
                     "type": "integer"
                 },
                 "maxResults": {
                     "location": "uri",
                     "description": "The maximum number of elements to return with this request.",
-                    "required": "false",
+                    "required": false,
                     "default": 10,
                     "maximum": 40,
                     "type": "integer"
@@ -82,7 +82,7 @@
                 "orderBy": {
                     "location": "uri",
                     "description": "Order of the volume search results.",
-                    "required": "false",
+                    "required": false,
                     "enum": [
                         "relevance",
                         "newest"
@@ -93,13 +93,13 @@
                 "printType": {
                     "location": "uri",
                     "description": "Restrict to books or magazines.",
-                    "required": "false",
+                    "required": false,
                     "type": "string"
                 },
                 "projection": {
                     "location": "uri",
                     "description": "Restrict volume information returned to a subset of fields.",
-                    "required": "false",
+                    "required": false,
                     "type": "string",
                     "enum": [
                         "full",
@@ -109,7 +109,7 @@
                 "key": {
                     "location": "uri",
                     "description": "API key",
-                    "required": "false",
+                    "required": false,
                     "type": "string"
                 }
             }
