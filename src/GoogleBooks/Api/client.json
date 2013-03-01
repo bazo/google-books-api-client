@@ -32,47 +32,47 @@
         },
         "SearchVolumes": {
             "httpMethod": "GET",
-            "uri": "/books/v1/volumes?q={search}&filter={filter}&download={download}&startIndex={startIndex}&maxResults={maxResults}&orderBy={orderBy}&projection={projection}&maxResults={printType}&key={key}",
+            "uri": "/books/v1/volumes?q={search}",
             "summary": "Search volumes",
-            "responseClass": "GetVolumeOutput",
+            "responseClass": "GetSearchOutput",
             "parameters": {
                 "search": {
-                    "location": "uri",
+                    "location": "query",
                     "description": "Volumes to search by text",
                     "required": true,
                     "type": "string"
                 },
-                 "filter": {
-                    "location": "uri",
+                "filter": {
+                    "location": "query",
                     "description": "You can use the filter parameter to restrict the returned results further by setting it the to one of the following values",
                     "required": false,
                     "enum": [
-                        "partial",
-                        "full",
-                        "free-ebooks",
-                        "paid-ebooks",
-                        "ebooks"
+                    "partial",
+                    "full",
+                    "free-ebooks",
+                    "paid-ebooks",
+                    "ebooks"
                     ],
                     "type": "string"
                 },
-                 "download": {
-                    "location": "uri",
+                "download": {
+                    "location": "query",
                     "description": "You use the download parameter to restrict the returned results to volumes that have an available download format of epub by setting the to the value epub",
                     "required": false,
                     "enum": [
-                        "epub"
+                    "epub"
                     ],
                     "type": "string"
                 },
                 "startIndex": {
-                    "location": "uri",
+                    "location": "query",
                     "description": "The position in the collection at which to start the list of results.",
                     "required": false,
                     "default" : 0,
                     "type": "integer"
                 },
                 "maxResults": {
-                    "location": "uri",
+                    "location": "query",
                     "description": "The maximum number of elements to return with this request.",
                     "required": false,
                     "default": 10,
@@ -80,34 +80,34 @@
                     "type": "integer"
                 },
                 "orderBy": {
-                    "location": "uri",
+                    "location": "query",
                     "description": "Order of the volume search results.",
                     "required": false,
                     "enum": [
-                        "relevance",
-                        "newest"
+                    "relevance",
+                    "newest"
                     ],
                     "default": "relevance",
                     "type": "string"
                 },
                 "printType": {
-                    "location": "uri",
+                    "location": "query",
                     "description": "Restrict to books or magazines.",
                     "required": false,
                     "type": "string"
                 },
                 "projection": {
-                    "location": "uri",
+                    "location": "query",
                     "description": "Restrict volume information returned to a subset of fields.",
                     "required": false,
                     "type": "string",
                     "enum": [
-                        "full",
-                        "lite"
+                    "full",
+                    "lite"
                     ]
                 },
                 "key": {
-                    "location": "uri",
+                    "location": "query",
                     "description": "API key",
                     "required": false,
                     "type": "string"
@@ -126,6 +126,26 @@
                         "type": "string"
                     },
                     "volumeInfo": {
+                        "location": "json",
+                        "type": "array"
+                    }
+                }
+            }
+        },
+        "GetSearchOutput": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "kind": {
+                        "location": "json",
+                        "type": "string"
+                    },
+                    "totalItems": {
+                        "location": "json",
+                        "type": "integer"
+                    },
+                    "items": {
                         "location": "json",
                         "type": "array"
                     }
